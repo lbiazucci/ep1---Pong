@@ -1,0 +1,57 @@
+Aluno: Leonardo Coppola Biazucci
+nº USP: 10723728
+EP1 - PONG
+------------------------------------------
+instruções para o PONG! base:
+
+- compilação:
+    Para facilitar a compilação, foi feito o uso do GNU make, sendo assim, basta
+    entrar no diretório "src" e digitar "make compile" sem as aspas.
+
+- execução:
+    Aqui também foi feito o uso do GNU make, sendo assim, basta entrar no
+    diretório "src" e digitar "make execute" sem as aspas.
+
+- Make all:
+    A opção mais fácil de todas para executar o programa é apenas digitar "make"
+    dentro da pasta "src", pois a função compilação e execução serão realizadas em sequência.
+    
+------------------------------------------
+instruções para o Lpong2:
+
+Depois de terminar o PONG! eu comecei a brincar um pouco com os comandos do gameLib
+e acabei pensando "pq não colocar uma imagem no lugar de tentar desenhar as coisas
+com quadrados e círculos?". Nisso, eu pensei em reformular todo o visual do jogo, e
+me veio a cabeça um jogo que estava disponível em distribuições linux mais antigas
+que eu jogava quando menor, chamado Lbreakout2. Esse jogo tinha um funcionamento
+parecido com o pong e eu pensei em fazer uma interface baseada nesse outro jogo.
+Felizmente, o jogo estava disponível para download e tanto as sprites quanto os sons
+estavam fáceis de achar. Nisso, eu editei umas imagens aqui e ali, e acabei
+transformando o PONG! no Lpong2. (obs: a única imagem que não é propriamente do
+Lbreakout2 é a do fundo da "arena", que veio de um outro jogo. Algumas imagens do
+Lbreakout2 também foram editadas em questão de cor).
+
+Além do visual completamente diferente, o Lpong2 também tem uma mudança em sua
+mecânica de jogo: a velocidade da bola aumenta exponencialmente até que um ponto
+seja marcado e sua velocidade retorne a velocidade base. Isso torna o jogo muito
+mais frenético, boa sorte jogando :)
+
+Infelizmente, para fazer todas as mudanças no visual, eu precisei fazer uma pequena
+mudança na classe gameLib, a de tornar a variável "Graphics g" pública e estática, 
+pois a classe gameLib não possuia o método de desenhar imagens que está disponível
+na classe graphics. Por isso, no make file vocês verão a compilação da classe gameLib,
+entretanto, esta foi a única mudança feita no arquivo, visto que o intuito era evitar
+ao máximo mexer nas outras classes.
+
+Também não foi possível tornar essa versão do pong funcional para outras dimensões,
+pois para que a camada da imagem das paredes fique na frente do retângulo branco, 
+elas devem ser desenhadas pelo player ou pelo score (pois o draw dessas classes são
+executados depois do draw da parede), entretanto, essas duas classes não tem como obter
+as informações das dimensões das paredes (o player consegue a parede de cima e de baixo,
+mas ainda assim não são todas), o que impossibilitou a criação de um jogo 100% funcional
+para as outras dimensões.
+
+- compilação e execução: são as mesmas instruções do PONG!, basta navegar até a pasta
+    Lpong2 e digitar o comando make que as classes serão compiladas e o pong será
+    executado.
+
